@@ -1,0 +1,10 @@
+{
+  "name": "rihla",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix rihla-vente run dev",
+    "build": "npm --prefix rihla-vente run build",
+    "lint": "npm --prefix rihla-vente run lint"
+  }
+}
