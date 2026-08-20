@@ -1,9 +1,6 @@
 {
-  "framework": "vite",
-  "buildCommand": "npm --prefix rihla-vente run build",
-  "installCommand": "npm --prefix rihla-vente install",
+  "buildCommand": "cd rihla-vente && npm install && npm run build",
   "outputDirectory": "rihla-vente/dist",
-  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/(.*)",

@@ -6,6 +6,7 @@ import {
   galleryItems,
   includedFeatures,
   weeks,
+  valueStack,
   comparison,
   audienceFit,
   testimonials,
@@ -111,14 +112,6 @@ function Icon({ name, size = 20, className = '' }) {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       )
-    case 'cart':
-      return (
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-          <circle cx="8" cy="21" r="1" />
-          <circle cx="19" cy="21" r="1" />
-          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-        </svg>
-      )
     case 'shield':
       return (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -132,7 +125,7 @@ function Icon({ name, size = 20, className = '' }) {
 }
 
 // Monogram Logo Component
-function BrandEmblem({ size = 26 }) {
+function BrandEmblem({ size = 24 }) {
   return (
     <div className="brand-emblem">
       <svg width={size} height={size} viewBox="0 0 64 64" fill="none">
@@ -201,13 +194,13 @@ export default function App() {
           <div className="ticker-msg">
             <span className="pulse-dot"></span>
             <span>
-              Offre Spéciale de Lancement : <strong>{shop.discountText}</strong>
+              Offre de Lancement : <strong>{shop.discountText}</strong>
             </span>
             <span className="ticker-price-tag">{formatPrice(shop.price)} au lieu de {formatPrice(shop.compareAt)}</span>
           </div>
 
           <div className="ticker-clock" aria-label="Compte à rebours de l'offre">
-            <span style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--gold-400)', letterSpacing: '0.1em' }}>
+            <span style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--gold-400)', letterSpacing: '0.08em' }}>
               Expire dans :
             </span>
             <div className="ticker-clock-unit">
@@ -226,7 +219,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* 2. STICKY PRESTIGE NAVIGATION */}
+      {/* 2. ÉPURÉ & SLEEK NAVIGATION */}
       <header className="nav">
         <div className="wrap nav-inner">
           <a href="#top" className="brand-link">
@@ -237,19 +230,18 @@ export default function App() {
             </div>
           </a>
 
+          {/* Menu simplifié & épuré (3 liens essentiels) */}
           <nav>
             <ul className="nav-links">
-              <li><a href="#programme">Le Programme 30 Jours</a></li>
-              <li><a href="#contenu">Dans Votre Pack</a></li>
-              <li><a href="#transformation">La Méthode</a></li>
-              <li><a href="#avis">Témoignages</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#programme">Le Programme</a></li>
+              <li><a href="#contenu">Le Contenu</a></li>
+              <li><a href="#avis">Avis</a></li>
             </ul>
           </nav>
 
           <div className="nav-action">
             <a href={shop.checkoutUrl} className="btn btn-gold btn-sm">
-              <Icon name="download" size={15} />
+              <Icon name="download" size={14} />
               <span>Télécharger le Pack</span>
             </a>
           </div>
@@ -263,11 +255,11 @@ export default function App() {
             <div className="hero-content">
               <div className="hero-badge-row">
                 <span className="badge-gold">
-                  <Icon name="sparkles" size={14} />
+                  <Icon name="sparkles" size={13} />
                   Pack Premium Débutant
                 </span>
                 <span className="badge-emerald">
-                  <Icon name="infinity" size={14} />
+                  <Icon name="infinity" size={13} />
                   Accès à vie immédiat
                 </span>
               </div>
@@ -287,15 +279,15 @@ export default function App() {
 
               <div className="hero-pills">
                 <div className="hero-pill-item">
-                  <Icon name="calendar" size={16} />
+                  <Icon name="calendar" size={15} />
                   <span>30 Jours chrono</span>
                 </div>
                 <div className="hero-pill-item">
-                  <Icon name="clock" size={16} />
+                  <Icon name="clock" size={15} />
                   <span>15 à 30 min / jour</span>
                 </div>
                 <div className="hero-pill-item">
-                  <Icon name="sparkles" size={16} />
+                  <Icon name="sparkles" size={15} />
                   <span>Zéro prérequis</span>
                 </div>
               </div>
@@ -306,16 +298,16 @@ export default function App() {
                   <span>Télécharger le Pack · {formatPrice(shop.price)}</span>
                 </a>
                 <a href="#programme" className="btn btn-outline-gold btn-lg">
-                  <span>Découvrir le programme</span>
+                  <span>Voir le programme</span>
                 </a>
               </div>
 
               <div className="hero-trust-sub">
-                <span><Icon name="check" size={14} style={{ color: 'var(--emerald-700)' }} /> Accès Drive immédiat</span>
+                <span><Icon name="check" size={13} style={{ color: 'var(--emerald-700)' }} /> Accès Drive immédiat</span>
                 <span>•</span>
-                <span><Icon name="check" size={14} style={{ color: 'var(--emerald-700)' }} /> Licence personnelle officielle</span>
+                <span><Icon name="check" size={13} style={{ color: 'var(--emerald-700)' }} /> Licence nominative</span>
                 <span>•</span>
-                <span><Icon name="check" size={14} style={{ color: 'var(--emerald-700)' }} /> Sur mobile & tablette</span>
+                <span><Icon name="check" size={13} style={{ color: 'var(--emerald-700)' }} /> Mobile & tablette</span>
               </div>
             </div>
 
@@ -327,12 +319,14 @@ export default function App() {
                   src="/visuels/mockup-livre-pose.png"
                   alt="Livre de cours Rihla - Apprendre à lire le Coran en 30 jours"
                   className="hero-main-img"
+                  fetchPriority="high"
+                  decoding="async"
                 />
 
                 {/* Floating Glass Badges */}
                 <div className="floating-badge floating-badge-top">
                   <div className="badge-icon-box">
-                    <Icon name="video" size={18} />
+                    <Icon name="video" size={16} />
                   </div>
                   <div className="floating-badge-text">
                     <strong>Vidéos Pas à Pas HD</strong>
@@ -342,7 +336,7 @@ export default function App() {
 
                 <div className="floating-badge floating-badge-bottom">
                   <div className="badge-icon-box">
-                    <Icon name="certificate" size={18} />
+                    <Icon name="certificate" size={16} />
                   </div>
                   <div className="floating-badge-text">
                     <strong>Certificat Officiel</strong>
@@ -361,7 +355,7 @@ export default function App() {
               {highlights.map((item) => (
                 <div className="highlight-card" key={item.title}>
                   <div className="highlight-icon">
-                    <Icon name={item.icon} size={22} />
+                    <Icon name={item.icon} size={20} />
                   </div>
                   <div className="highlight-text">
                     <strong>{item.title}</strong>
@@ -373,12 +367,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. LES 4 SEMAINES DU PROGRAMME AFFICHÉES EN MÊME TEMPS */}
+        {/* 5. LES 4 SEMAINES DU PROGRAMME (AFFICHÉES EN MÊME TEMPS) */}
         <section className="section section-alt" id="programme">
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="path" size={16} />
+                <Icon name="path" size={15} />
                 Le Voyage en 30 Jours
               </span>
               <h2 className="section-title">Les 4 Semaines du Programme Pas à Pas</h2>
@@ -392,13 +386,13 @@ export default function App() {
             <div className="weeks-grid-simultaneous">
               {weeks.map((w) => (
                 <article className="week-grand-card" key={w.id}>
-                  {/* Photo d'illustration dédiée */}
                   <div className="week-visual-wrapper">
                     <img
                       src={w.image}
                       alt={w.imageAlt}
                       className="week-visual-img"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="week-badge-overlay">
                       Semaine {w.n} / 04
@@ -408,7 +402,6 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Corps de la carte de cours */}
                   <div className="week-card-body">
                     <div>
                       <h3 className="week-title">{w.title}</h3>
@@ -433,7 +426,7 @@ export default function App() {
                     </div>
 
                     <div className="week-milestone-footer">
-                      <Icon name="sparkles" size={18} />
+                      <Icon name="sparkles" size={16} />
                       <span>{w.highlight}</span>
                     </div>
                   </div>
@@ -441,8 +434,7 @@ export default function App() {
               ))}
             </div>
 
-            {/* Call to action sous le programme */}
-            <div style={{ textAlign: 'center', marginTop: '45px' }}>
+            <div style={{ textAlign: 'center', marginTop: '40px' }}>
               <a href={shop.checkoutUrl} className="btn btn-gold btn-lg">
                 <Icon name="download" size={18} />
                 <span>Accéder au Programme · {formatPrice(shop.price)}</span>
@@ -456,7 +448,7 @@ export default function App() {
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="book" size={16} />
+                <Icon name="book" size={15} />
                 Supports & Contenus Pédagogiques
               </span>
               <h2 className="section-title">Ce que vous recevez dans votre Pack Rihla</h2>
@@ -467,9 +459,8 @@ export default function App() {
             </div>
 
             <div className="showroom-grid">
-              {/* Visual Mockup Showroom */}
               <div className="showroom-visual-card">
-                <span className="badge-gold" style={{ position: 'absolute', top: 20, left: 20, zIndex: 5 }}>
+                <span className="badge-gold" style={{ position: 'absolute', top: 18, left: 18, zIndex: 5 }}>
                   {selectedGallery.badge}
                 </span>
 
@@ -477,6 +468,8 @@ export default function App() {
                   src={selectedGallery.image}
                   alt={selectedGallery.title}
                   className="showroom-main-img"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <div className="showroom-picker">
@@ -493,13 +486,12 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Feature Details List */}
               <div className="showroom-details-col">
                 <div className="features-grid">
                   {includedFeatures.map((feat) => (
                     <div className="feature-box" key={feat.title}>
                       <div className="feature-icon-box">
-                        <Icon name={feat.icon} size={20} />
+                        <Icon name={feat.icon} size={18} />
                       </div>
                       <div className="feature-info">
                         <h4>{feat.title}</h4>
@@ -509,7 +501,7 @@ export default function App() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: '28px', textAlign: 'center' }}>
+                <div style={{ marginTop: '24px', textAlign: 'center' }}>
                   <a href={shop.checkoutUrl} className="btn btn-gold btn-lg" style={{ width: '100%' }}>
                     <Icon name="download" size={18} />
                     <span>Télécharger le Pack · {formatPrice(shop.price)}</span>
@@ -520,12 +512,87 @@ export default function App() {
           </div>
         </section>
 
-        {/* 7. SPIRITUAL TRANSFORMATION & BEFORE/AFTER (LISIBILITÉ ET CONTRASTE PARFAITS) */}
+        {/* 7. VALUE STACK (VALEUR DU PACKAGE VS VALEUR FINALE DU PRODUIT) */}
+        <section className="section section-alt">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="section-kicker">
+                <Icon name="sparkles" size={15} />
+                Récapitulatif de Valeur
+              </span>
+              <h2 className="section-title">La Valeur Totale de votre Pack Rihla</h2>
+              <div className="islamic-divider">۞</div>
+              <p className="section-desc">
+                Voici le détail de chaque composant inclus dans votre accès immédiat et sa valeur réelle sur le marché de la formation.
+              </p>
+            </div>
+
+            <div className="value-stack-wrapper">
+              <ul className="value-stack-list">
+                {valueStack.map((item, idx) => (
+                  <li className="value-stack-item" key={idx}>
+                    <div className="value-item-left">
+                      <div className="value-item-icon">
+                        <Icon name={item.icon} size={18} />
+                      </div>
+                      <div className="value-item-info">
+                        <strong>{item.title}</strong>
+                        <span>{item.subtitle}</span>
+                      </div>
+                    </div>
+                    <div className="value-item-price">
+                      {formatPrice(item.value)}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Total Calculation Box */}
+              <div className="value-total-box">
+                <div className="value-calc-col">
+                  <span className="value-total-label">Valeur Réelle Totale du Pack :</span>
+                  <span className="value-total-amount">{formatPrice(shop.totalRealValue)}</span>
+                </div>
+
+                <div className="value-final-col">
+                  <span className="value-final-label">Votre Tarif Aujourd'hui (Paiement Unique) :</span>
+                  <div className="value-final-amount">{formatPrice(shop.price)}</div>
+                  <span style={{ fontSize: '12px', color: '#a6e3b8', fontWeight: 600 }}>
+                    Économisez {formatPrice(shop.totalRealValue - shop.price)} immédiatement
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'center', marginTop: '24px' }}>
+                <a href={shop.checkoutUrl} className="btn btn-gold btn-lg" style={{ width: '100%' }}>
+                  <Icon name="download" size={20} />
+                  <span>Obtenir Tout le Pack pour {formatPrice(shop.price)}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* GARANTIE SÉRÉNITÉ DÉDIÉE */}
+            <div className="guarantee-container">
+              <div className="guarantee-seal">
+                <strong>100%</strong>
+                <span>Garantie Sérénité</span>
+              </div>
+              <div className="guarantee-content">
+                <h3>Notre Garantie d'Accompagnement & Clarté</h3>
+                <p>
+                  Nous avons élaboré la méthode Rihla pour que chaque lettre devienne une évidence. En suivant seulement 15 minutes par jour pendant 30 jours, vous aurez acquis toutes les bases pour lire le Noble Coran. De plus, notre assistance WhatsApp reste disponible pour répondre à vos questions et vous encourager dans votre cheminement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. SPIRITUAL TRANSFORMATION & BEFORE/AFTER */}
         <section className="section section-emerald" id="transformation">
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="sparkles" size={16} />
+                <Icon name="sparkles" size={15} />
                 Une transformation profonde
               </span>
               <h2 className="section-title">Pourquoi ce voyage change votre relation avec le Coran</h2>
@@ -536,10 +603,9 @@ export default function App() {
             </div>
 
             <div className="comparison-grid">
-              {/* Before */}
               <div className="comparison-card card-before">
                 <div className="comparison-header">
-                  <Icon name="cross" size={22} className="comp-bullet" />
+                  <Icon name="cross" size={20} className="comp-bullet" />
                   <h3>Avant de commencer Rihla</h3>
                 </div>
                 <ul className="comparison-list">
@@ -552,10 +618,9 @@ export default function App() {
                 </ul>
               </div>
 
-              {/* After */}
               <div className="comparison-card card-after">
                 <div className="comparison-header">
-                  <Icon name="check" size={24} className="comp-bullet" />
+                  <Icon name="check" size={22} className="comp-bullet" />
                   <h3>Après les 30 Jours de voyage</h3>
                 </div>
                 <ul className="comparison-list">
@@ -571,12 +636,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* 8. AUDIENCE FIT: POUR QUI EST FAIT CE PACK */}
+        {/* 9. AUDIENCE FIT */}
         <section className="section">
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="shield" size={16} />
+                <Icon name="shield" size={15} />
                 Transparence & Clarté
               </span>
               <h2 className="section-title">Ce Pack est-il fait pour vous ?</h2>
@@ -615,12 +680,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* 9. TESTIMONIALS / AVIS ÉLÈVES */}
+        {/* 10. TESTIMONIALS */}
         <section className="section section-alt" id="avis">
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="star" size={16} />
+                <Icon name="star" size={15} />
                 Retours d’expérience
               </span>
               <h2 className="section-title">Ce que disent nos apprenants</h2>
@@ -652,27 +717,27 @@ export default function App() {
           </div>
         </section>
 
-        {/* 10. GRAND OFFER SECTION */}
+        {/* 11. GRAND OFFER SECTION */}
         <section className="section" id="offre">
           <div className="wrap">
             <div className="offer-container">
               <div className="offer-grid">
-                {/* Visual */}
                 <div className="offer-visual-col">
                   <img
                     src="/visuels/pack-kit.png"
                     alt="Pack Rihla Débutant Coffret Prestige"
                     className="offer-main-img"
+                    loading="lazy"
+                    decoding="async"
                   />
-                  <div style={{ textAlign: 'center', marginTop: '16px' }}>
+                  <div style={{ textAlign: 'center', marginTop: '14px' }}>
                     <span className="badge-gold">Format Digital Immédiat · Accès à vie</span>
                   </div>
                 </div>
 
-                {/* Offer Copy */}
                 <div className="offer-content-col">
                   <span className="offer-header-badge">
-                    <Icon name="sparkles" size={14} />
+                    <Icon name="sparkles" size={13} />
                     Offre Spéciale de Lancement
                   </span>
 
@@ -685,13 +750,12 @@ export default function App() {
                   </h2>
 
                   <p className="offer-sub">
-                    {shop.subtitle} · Accès complet avec vidéos, supports PDF, audios et certificat de licence personnelle.
+                    {shop.subtitle} · Accès complet avec vidéos HD, supports PDF, audios et certificat de licence personnelle.
                   </p>
 
-                  {/* Countdown Box */}
                   <div className="offer-countdown-card">
                     <span className="offer-countdown-label">
-                      ⏳ Tarif promotionnel garanti encore :
+                      ⏳ Offre spéciale garantie encore :
                     </span>
                     <div className="offer-clock-digits">
                       <div className="offer-clock-box">
@@ -709,7 +773,6 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Pricing */}
                   <div className="offer-pricing-row">
                     <span className="offer-current-price">{formatPrice(shop.price)}</span>
                     <span className="offer-old-price">{formatPrice(shop.compareAt)}</span>
@@ -741,12 +804,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* 11. FAQ SECTION */}
+        {/* 12. FAQ SECTION */}
         <section className="section section-alt" id="faq">
           <div className="wrap">
             <div className="section-head">
               <span className="section-kicker">
-                <Icon name="sparkles" size={16} />
+                <Icon name="sparkles" size={15} />
                 Réponses à vos questions
               </span>
               <h2 className="section-title">Foire Aux Questions</h2>
@@ -774,7 +837,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 12. FINAL SPIRITUAL BANNER */}
+        {/* 13. FINAL SPIRITUAL BANNER */}
         <section className="final-banner">
           <div className="wrap final-content">
             <div className="final-arabic" lang="ar">
@@ -795,11 +858,11 @@ export default function App() {
         </section>
       </main>
 
-      {/* 13. FOOTER */}
+      {/* 14. FOOTER */}
       <footer className="footer">
         <div className="wrap footer-inner">
           <div className="footer-brand">
-            <BrandEmblem size={22} />
+            <BrandEmblem size={20} />
             <div>
               <strong>{shop.name} ({shop.arabic})</strong>
               <div style={{ fontSize: '12px', color: 'var(--gold-400)' }}>
@@ -814,7 +877,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* 14. MOBILE STICKY BOTTOM BAR */}
+      {/* 15. MOBILE STICKY BOTTOM BAR */}
       <div className="mobile-sticky-bar">
         <div className="mobile-sticky-inner">
           <div className="sticky-price-col">

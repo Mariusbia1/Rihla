@@ -11,6 +11,7 @@ export const shop = {
   badge: 'En seulement 30 jours',
   price: 1000,
   compareAt: 5000,
+  totalRealValue: 60000,
   currency: 'F CFA',
   discountText: '-80% de réduction immédiate',
   offerHours: 24,
@@ -22,6 +23,39 @@ export const shop = {
 export function formatPrice(n) {
   return `${n.toLocaleString('fr-FR')} ${shop.currency}`
 }
+
+export const valueStack = [
+  {
+    icon: 'video',
+    title: 'Programme Vidéo Complet 30 Jours HD',
+    subtitle: 'Toutes les leçons guidées pas à pas, lettre par lettre',
+    value: 25000,
+  },
+  {
+    icon: 'book',
+    title: 'Manuel de Cours & Fiches Mémo PDF',
+    subtitle: 'Support pédagogique structuré haute définition téléchargeable',
+    value: 10000,
+  },
+  {
+    icon: 'audio',
+    title: 'Guides Audio de Répétition & Prononciation',
+    subtitle: 'Enregistrements sonores pour caler votre oreille et votre fluidité',
+    value: 8000,
+  },
+  {
+    icon: 'certificate',
+    title: 'Certificat d’Accès & Licence Nominative',
+    subtitle: 'Document officiel attestant de votre droit d’accès personnel',
+    value: 7000,
+  },
+  {
+    icon: 'infinity',
+    title: 'Accès à Vie Illimité sur Google Drive',
+    subtitle: 'Zéro abonnement : révisez à votre rythme sur mobile, tablette et PC',
+    value: 10000,
+  },
+]
 
 export const highlights = [
   {
